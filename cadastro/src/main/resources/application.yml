@@ -1,0 +1,28 @@
+server:
+  port : 8081
+cloud:
+  aws:
+    region:
+      static: sa-east-1
+    stack:
+      auto: false
+    credentials:
+      access-key: admin
+      secret-key: admin
+    fila:
+      cadastra_cliente: http://localhost:9324/queue/cadastra_cliente
+
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/seguradora?authSource=admin
+  autoconfigure:
+    exclude:
+      - org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration
+      - org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration
